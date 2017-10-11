@@ -1,32 +1,59 @@
-<h1>BT</h1>
-<div class="card">
-    <h2>Tell us what would you like to eat?</h2>
-    <h3>Choose An Authenticity</h3>
-    <select class="selectDropdown">
-        <option>Indian - Punjabi</option>
-        <option>Indian - Maharashtrian</option>
-        <option>Indian - S/indian</option>
-        <option>Indian - Kokni</option>
-        <option>Chinese</option>
-        <option>Indian - North Indian</option>
-        <option>Italian</option>
-        <option>Mexican</option>
-        <option>Middle eastern</option>
-    </select>
-    <h3>Choose A Taste Type</h3>
-    <select class="selectDropdown">
-            <option>Sweet</option>
-            <option>Sour</option>
-            <option>Spicy</option>
-            <option>Random</option>
-    </select>
-    <h3>Choose A Type of Meal</h3>
-    <select class="selectDropdown">
-            <option>Starter</option>
-            <option>Main-course</option>
-            <option>Desert</option>
-            <option>Street Food</option>
-            <option>Health Food</option>
-    </select>
-    <button type="button" class="buttonPrimary">Search</button>
+<div class="navbar">
+    <div class="branding"><h1>BT</h1></div>
+    <div class="menu"></div>
+</div>
+
+
+<div class="container">
+    <h1>Welcome to BT</h1>
+    <div class="card">
+        <h2>Tell us what would you like to eat?</h2>
+        <h3>Choose An Authenticity</h3>
+        <select class="selectDropdown" #selectAuthenticity>
+            <option value="IndPunjabi">Indian - Punjabi</option>
+            <option value="IndMarathi">Indian - Maharashtrian</option>
+            <option value="IndSouth">Indian - S/indian</option>
+            <option value="IndCostal">Indian - Kokni</option>
+            <option value="Chinese">Chinese</option>
+            <option value="IndNorth">Indian - North Indian</option>
+            <option value="Italian">Italian</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Continental">Continental</option>
+        </select>
+        <h3>Choose A Taste Type</h3>
+        <select class="selectDropdown" #selectTaste>
+                <option value="MainCourse">Sweet</option>
+                <option value="MainCourse">Sour</option>
+                <option value="MainCourse">Spicy</option>
+                <option value="MainCourse">Random</option>
+        </select>
+        <h3>Choose A Type of Meal</h3>
+        <select class="selectDropdown" #selectMeal>
+                <option value="Starter">Starter</option>
+                <option value="MainCourse">Main-course</option>
+                <option value="Desert">Desert</option>
+                <option value="StreetFood">Street Food</option>
+                <option value="HealthFood">Health Food</option>
+        </select>
+        <p>
+            <input type="text" class="textBox" #artist>
+            <button type="button" 
+                class="buttonPrimary" 
+                (click)="searchFood(selectAuthenticity.value, selectTaste.value, selectMeal.value)">
+                Search
+            </button>
+        </p>
+        <h4>Search for {{name}}</h4>
+        <ul>
+            <li *ngFor="let foodItem of foodArray" 
+                (click)="clickFoodItem($event)">
+                <p>
+                    <span class="foodRecepieId">{{ foodItem.foodRecepieId }}.</span>
+                    <span class="foodRecepieName">{{ foodItem.foodName }}</span>
+                </p>
+                
+                <p class="foodRecepieRestaurent">{{ foodItem.restaurent }}, {{ foodItem.city }}</p>
+            </li>
+        </ul>
+    </div>
 </div>

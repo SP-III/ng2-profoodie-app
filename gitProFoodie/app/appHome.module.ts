@@ -4,15 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppHomeComponent } from './component.appHome';
 
 @NgModule({
-    imports:[
-        BrowserModule
+    imports: [
+      BrowserModule
     ],
-    declarations:[
-        AppHomeComponent
+    declarations: [
+      AppHomeComponent
     ],
-    bootstrap:[
-        AppHomeComponent
+    bootstrap: [
+      AppHomeComponent
     ]
-})
+  })
 
-export class AppHomeModule {};
+export class AppHomeModule{};
+

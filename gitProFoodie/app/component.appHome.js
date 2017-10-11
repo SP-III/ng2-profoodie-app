@@ -19,6 +19,34 @@ System.register(['@angular/core'], function(exports_1, context_1) {
             }],
         execute: function() {
             AppHomeComponent = class AppHomeComponent {
+                constructor() {
+                    this.name = 'a food dish you like';
+                    this.foodArray = [
+                        {
+                            foodRecepieId: 1,
+                            foodName: 'McDonalds Chicken McGrill Burger',
+                            restaurent: 'McDonalds',
+                            city: 'Chinchwad',
+                            authenticity: 'German',
+                            taste: 'Spicy',
+                            typeOfMeal: 'StreetFood',
+                            price: '50',
+                        }, {
+                            foodRecepieId: 2,
+                            foodName: 'KFC Chicken Zinger Burger',
+                            restaurent: 'KFC',
+                            city: 'Pimpri',
+                            authenticity: 'German',
+                            taste: 'Spicy',
+                            typeOfMeal: 'StreetFood',
+                            price: '120',
+                        }
+                    ];
+                }
+                clickFoodItem(e) {
+                    console.log(e.target);
+                    this.name = e.target.parentElement.getElementsByClassName("foodRecepieName")[0].innerHTML;
+                }
             };
             AppHomeComponent = __decorate([
                 core_1.Component({
